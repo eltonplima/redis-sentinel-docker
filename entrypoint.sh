@@ -14,7 +14,7 @@ then
         echo "The redis master address is: " ${REDIS_HOST}
         echo "Starting services..."
         sed -i "s@REDIS_HOST=\"localhost\"@REDIS_HOST=\"$REDIS_HOST\"@g" $HOME/supervisord.conf
-        /usr/local/bin/supervisord -c /usr/local/etc/supervisord.conf&
+        /usr/local/bin/supervisord -c $HOME/supervisord.conf&
     else
         echo "Redis master not found!"
         exit 1
