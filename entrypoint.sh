@@ -5,7 +5,7 @@ SENTINEL_CHECK_DELAY=${SENTINEL_CHECK_DELAY:-1}
 ###############################################################################
 # The code bellow is used as workaround to set REDIS_HOST using redis sentinel.
 ###############################################################################
-if [ -n ${SENTINEL_HOST} ]
+if [ -n "${SENTINEL_HOST}" ]
 then
     REDIS_HOST=`redis-cli -h ${SENTINEL_HOST} -p ${SENTINEL_PORT} --raw SENTINEL masters | grep ip -A 1 | grep -v ip`
 
