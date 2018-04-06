@@ -9,7 +9,7 @@ if [ -n "${SENTINEL_HOST}" ]
 then
     REDIS_HOST=`redis-cli -h ${SENTINEL_HOST} -p ${SENTINEL_PORT} --raw SENTINEL masters | grep ip -A 1 | grep -v ip`
 
-    if [ -n ${REDIS_HOST} ]
+    if [ -n "${REDIS_HOST}" ]
     then
         echo "The redis master address is: " ${REDIS_HOST}
         echo "Starting services..."
