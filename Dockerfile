@@ -11,5 +11,6 @@ RUN apk update && apk add redis && pip install supervisor
 COPY entrypoint.sh /
 COPY supervisord.conf .
 RUN chmod +x /entrypoint.sh
-HEALTHCHECK --interval=5s --timeout=2s --retries=3 CMD ping -c 1 $SENTINEL_HOST
+# TODO: We need to find a better way to do the healthcheck using SENTINEL_HOST or REDIS_HOST.
+# HEALTHCHECK --interval=5s --timeout=2s --retries=3 CMD ping -c 1 $SENTINEL_HOST
 ENTRYPOINT /entrypoint.sh
