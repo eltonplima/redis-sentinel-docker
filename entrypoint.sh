@@ -11,7 +11,7 @@ then
     echo "The redis server address is: " ${REDIS_HOST}
     echo "Starting services..."
     sed -i "s@REDIS_HOST=\"localhost\"@REDIS_HOST=\"$REDIS_HOST\"@g" $HOME/supervisord.conf
-    /usr/local/bin/supervisord -c $HOME/supervisord.conf&
+    /usr/local/bin/supervisord -c $HOME/supervisord.conf
 else
     if [ -n "${SENTINEL_HOST}" ]
     then
