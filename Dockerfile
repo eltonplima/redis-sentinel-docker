@@ -7,7 +7,7 @@ FROM python:2.7-alpine3.7
 
 ENV HOME /home/app
 WORKDIR /home/app
-RUN apk update && apk add redis && pip install supervisor
+RUN apk update && apk add redis && pip install -U pip && pip install supervisor
 COPY entrypoint.sh /
 COPY supervisord.conf .
 RUN chmod +x /entrypoint.sh
